@@ -1,22 +1,69 @@
-<!-- Hero website -->
-<header>
-  <!-- <h1 class="text-4xl font-bold">List Kegiatan Sekarang Arbhi</h1> -->
-  <h1 class="text-[40px] font-bold">List Kegiatan Sekarang Arbhi</h1>
-</header>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>To-Do List Arbhi</title>
 
-<!-- Main Content, List kegiatan sekarang (list to do) -->
-<main>
-  <form>
-    <input type="text" placeholder="buat baru catatan" class="border-3 p-2 rounded-[5px] ">
-    <input type="date" class="border-3 p-2 rounded-[5px] ml-2">
-    <button type="submit" class="bg-blue-500 text-white p-2 rounded-[5px] ml-2">Tambah</button>
-  </form>
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
 
-</main>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="bg-gray-100 p-4">
+  <div class="container mx-auto bg-white rounded-lg shadow-md p-6 mt-10 flex-1">
+    <!-- Hero website -->
+    <header class="text-center mb-8">
+      <h1 class="text-[40px] font-bold text-blue-700">List Kegiatan Sekarang Arbhi</h1>
+    </header>
 
-<footer>
-  <span class="text-1xl font-blod">&copy; 2025 Arbhi Rama A.M. yohoho ^.^ </span>
-</footer>
+    <!-- Main Content -->
+    <main>
+      <form id="todo-form" class="mb-8 p-4 bg-blue-50 rounded-lg">
+        <div class="flex flex-col md:flex-row gap-2">
+          <input type="text" id="todo-input" placeholder="Buat baru catatan" class="border-2 border-blue-300 p-2 rounded-[5px] flex-1" />
+          <input type="date" id="todo-date" class="border-2 border-blue-300 p-2 rounded-[5px]" />
+          <button type="submit" class="bg-blue-500 text-white p-2 rounded-[5px] hover:bg-blue-600 transition">Tambah</button>
+        </div>
+      </form>
 
-<!-- Js External -->
-<script src="js/script.js"></script>
+      <!-- Filter Section -->
+      <div class="mb-6 flex justify-between items-center">
+        <div class="flex space-x-2">
+          <button class="filter-btn bg-blue-500 text-white px-3 py-1 rounded" data-filter="all">Semua</button>
+          <button class="filter-btn bg-gray-200 px-3 py-1 rounded" data-filter="active">Aktif</button>
+          <button class="filter-btn bg-gray-200 px-3 py-1 rounded" data-filter="completed">Selesai</button>
+        </div>
+        <button id="delete-all" class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 transition">Hapus Semua</button>
+      </div>
+
+      <!-- Todo List Table -->
+      <div class="overflow-x-auto">
+        <table class="min-w-full bg-white">
+          <thead>
+            <tr class="bg-gray-200 text-gray-700">
+              <th class="py-2 px-4 text-left">TUGAS</th>
+              <th class="py-2 px-4 text-left">TENGAT WAKTU</th>
+              <th class="py-2 px-4 text-left">STATUS</th>
+              <th class="py-2 px-4 text-left">AKSI</th>
+            </tr>
+          </thead>
+          <tbody id="todo-list">
+            <tr>
+              <td colspan="4" class="py-4 text-center text-gray-500">Tidak ada tugas</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <footer class="text-center mt-8 py-4 text-gray-600">
+    <span class="text-1xl font-bold">&copy; 2025 Arbhi Rama A.M. yohoho ^.^ </span>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="js/script.js"></script>
+</body>
+</html>
